@@ -39,8 +39,8 @@
     <span>切换线路:</span>
     <select id="selNode"></select>
   </div>
- <!-- <div class="box" id="list">
-  </div>-->
+ <div class="box" id="list">
+  </div>
   <script>
     const PAGE_CONF_SET = 110
     const PAGE_CONF_GET = 111
@@ -70,7 +70,7 @@
       }
       
       const text = txtURL.value.trim()
-      if(text){
+      if(!text){
         text = 'https://www.google.com/ncr';
       }
       if (text) {
@@ -129,6 +129,10 @@
     }
 
     const SITE_LIST = [
+
+    ]
+    
+    <!--
       ['google', ''],
       ['youtube', ''],
       ['twitter', 'twitter.com/google'],
@@ -139,8 +143,8 @@
       ['wiki', 'zh.wikipedia.org/'],
       ['gist', 'gist.github.com/'],
       ['facebook', 'facebook.com/Google/'],
-      ['blogger', ''],
-    ]
+      ['blogger', ''], 
+    -->
 
     function showIcons() {
       list.innerHTML = SITE_LIST.map(v => {
