@@ -26,7 +26,7 @@
       margin: 1em;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js" integrity="sha256-7uoevSMGGHaM9JT1c9+XCpW+ECg1f7KnPL/JNpDjSRI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/js-sha1/0.6.0/sha1.min.js"></script>
 </head>
 <body>
   <div class="box">
@@ -61,15 +61,18 @@
       var pwd = prompt("PassWord","");
       if (pwd!=null && pwd!="")
       {
-          var sha = hex_sha1(pwd);
+          var sha = sha1(pwd);
         if(sha != 'd1967975bb39199769110f7a31725119365545e6'){
           return;
-          }
+         }
       }else{
         return;
       }
       
       const text = txtURL.value.trim()
+      if(text){
+        text = 'https://www.google.com/ncr';
+      }
       if (text) {
         const url = './-----' + text
         open(url, '_blank', 'noopener,noreferrer')
