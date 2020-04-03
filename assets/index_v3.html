@@ -52,24 +52,13 @@
     const SW_READY = 201
 
     const sw = navigator.serviceWorker
-
-
+    
+    
     sw.addEventListener('message', onSwMsg)
     sendMsgToSw(PAGE_READY_CHECK)
 
     btnGo.onclick = function() {
-      var pwd = prompt("PassWord","");
-      if (pwd!=null && pwd!="")
-      {
-          var sha = sha1(pwd);
-        if(sha != 'd1967975bb39199769110f7a31725119365545e6'){
-          return;
-         }
-      }else{
-        return;
-      }
-      
-      const text = txtURL.value.trim()
+      var text = txtURL.value.trim()
       if(!text){
         text = 'https://www.google.com/ncr';
       }
@@ -131,20 +120,6 @@
     const SITE_LIST = [
 
     ]
-    
-    <!--
-      ['google', ''],
-      ['youtube', ''],
-      ['twitter', 'twitter.com/google'],
-      ['flickr', ''],
-      ['quora', 'www.quora.com/topic/JavaScript-programming-language'],
-      ['twitch', 'www.twitch.tv/'],
-      ['reddit', ''],
-      ['wiki', 'zh.wikipedia.org/'],
-      ['gist', 'gist.github.com/'],
-      ['facebook', 'facebook.com/Google/'],
-      ['blogger', ''], 
-    -->
 
     function showIcons() {
       list.innerHTML = SITE_LIST.map(v => {
@@ -184,4 +159,21 @@
     }
   </script>
 </body>
+  
+      
+    <!--
+      ['google', ''],
+      ['youtube', ''],
+      ['twitter', 'twitter.com/google'],
+      ['flickr', ''],
+      ['quora', 'www.quora.com/topic/JavaScript-programming-language'],
+      ['twitch', 'www.twitch.tv/'],
+      ['reddit', ''],
+      ['wiki', 'zh.wikipedia.org/'],
+      ['gist', 'gist.github.com/'],
+      ['facebook', 'facebook.com/Google/'],
+      ['blogger', ''], 
+    -->
+
+  
 </html>
