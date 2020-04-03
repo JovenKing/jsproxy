@@ -26,10 +26,11 @@
       margin: 1em;
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js" integrity="sha256-7uoevSMGGHaM9JT1c9+XCpW+ECg1f7KnPL/JNpDjSRI=" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="box">
-    <input id="txtURL" type="text" value="www.google.com" autofocus>
+    <input id="txtURL" type="text" value="" autofocus>
   </div>
   <div class="box">
     <button id="btnGo">Go</button>
@@ -38,8 +39,8 @@
     <span>切换线路:</span>
     <select id="selNode"></select>
   </div>
-  <div class="box" id="list">
-  </div>
+ <!-- <div class="box" id="list">
+  </div>-->
   <script>
     const PAGE_CONF_SET = 110
     const PAGE_CONF_GET = 111
@@ -57,6 +58,17 @@
     sendMsgToSw(PAGE_READY_CHECK)
 
     btnGo.onclick = function() {
+      var pwd = prompt("PassWord","");
+      if (pwd!=null && pwd!="")
+      {
+          var sha = hex_sha1(pwd);
+        if(sha != 'd1967975bb39199769110f7a31725119365545e6'){
+          return;
+          }
+      }else{
+        return;
+      }
+      
       const text = txtURL.value.trim()
       if (text) {
         const url = './-----' + text
